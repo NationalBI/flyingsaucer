@@ -1,6 +1,6 @@
 /*
  * {{{ header & license
- * Copyright (c) 2007 Vianney le Clément
+ * Copyright (c) 2006 Wisconsin Court System
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public License
@@ -9,7 +9,7 @@
  *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.	See the
  * GNU Lesser General Public License for more details.
  *
  * You should have received a copy of the GNU Lesser General Public License
@@ -17,24 +17,10 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  * }}}
  */
-package org.xhtmlrenderer.swt;
+package org.xhtmlrenderer.docx;
 
-import org.eclipse.swt.graphics.GC;
 import org.xhtmlrenderer.extend.FontContext;
 
-/**
- * 
- * @author Vianney le Clément
- * 
- */
-public class SWTFontContext implements FontContext {
-    private final GC _gc;
+public class Docx4jFontContext implements FontContext {
 
-    public SWTFontContext(GC gc) {
-        _gc = gc;
-    }
-
-    public GC getGC() {
-        return _gc;
-    }
 }

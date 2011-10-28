@@ -1,6 +1,6 @@
 /*
  * {{{ header & license
- * Copyright (c) 2007 Vianney le Clément
+ * Copyright (c) 2007 Wisconsin Court System
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public License
@@ -17,24 +17,13 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  * }}}
  */
-package org.xhtmlrenderer.demo.browser.swt.actions;
+package org.xhtmlrenderer.docx;
 
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.widgets.FileDialog;
-import org.eclipse.swt.widgets.MenuItem;
-import org.xhtmlrenderer.demo.browser.swt.Browser;
+import org.xhtmlrenderer.extend.ReplacedElement;
+import org.xhtmlrenderer.render.BlockBox;
+import org.xhtmlrenderer.render.RenderingContext;
 
-public class OpenAction extends AbstractAction {
-
-    public OpenAction() {
-        super("Open File...\tCtrl+O", SWT.PUSH, SWT.CTRL | 'O', null);
-    }
-
-    public void run(Browser browser, MenuItem mi) {
-        String file = new FileDialog(browser.getShell(), SWT.OPEN).open();
-        if (file != null) {
-            browser.load("file://" + file);
-        }
-    }
-
+public interface Docx4jReplacedElement extends ReplacedElement
+{
+    public void paint(RenderingContext c, Docx4jDocxOutputDevice outputDevice, BlockBox box);
 }
