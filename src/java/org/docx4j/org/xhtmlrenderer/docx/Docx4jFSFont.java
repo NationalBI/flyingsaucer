@@ -1,6 +1,6 @@
 /*
  * {{{ header & license
- * Copyright (c) 2006 Wisconsin Court System
+ * Copyright (c) 2007 Wisconsin Court System
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public License
@@ -9,7 +9,7 @@
  *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU Lesser General Public License for more details.
  *
  * You should have received a copy of the GNU Lesser General Public License
@@ -17,11 +17,25 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  * }}}
  */
-package org.docx4j.org.xhtmlrenderer.render;
+package org.docx4j.org.xhtmlrenderer.docx;
 
-//import org.docx4j.org.xhtmlrenderer.pdf.ITextFontResolver.FontDescription;
+import org.docx4j.org.xhtmlrenderer.render.FSFont;
 
-public interface FSFont {
-    public float getSize2D();
-    //public FontDescription getFontDescription(); // specific to ITextFontResolver
+public class Docx4jFSFont implements FSFont {
+    
+    private Docx4jFontDescription _font;
+    private float _size;
+    
+    public Docx4jFSFont(Docx4jFontDescription font, float size) {
+        _font = font;
+        _size = size;
+    }
+
+    public float getSize2D() {
+        return _size;
+    }
+    
+    public Docx4jFontDescription getFontDescription() {
+        return _font;
+    }
 }

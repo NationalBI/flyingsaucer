@@ -36,18 +36,19 @@ import com.lowagie.text.Rectangle;
 import com.lowagie.text.pdf.PdfReader;
 
 public class Docx4jUserAgent extends NaiveUserAgent {
-    private static final int IMAGE_CACHE_CAPACITY = 32;
 
-    private SharedContext _sharedContext;
+//    private static final int IMAGE_CACHE_CAPACITY = 32;
+//
+//    private SharedContext _sharedContext;
+//
+//    private final Docx4jDocxOutputDevice _outputDevice;
+//
+//    public Docx4jUserAgent(Docx4jDocxOutputDevice outputDevice) {
+//		super(IMAGE_CACHE_CAPACITY);
+//		_outputDevice = outputDevice;
+//    }
 
-    private final Docx4jDocxOutputDevice _outputDevice;
-
-    public Docx4jUserAgent(Docx4jDocxOutputDevice outputDevice) {
-		super(IMAGE_CACHE_CAPACITY);
-		_outputDevice = outputDevice;
-    }
-
-    private byte[] readStream(InputStream is) throws IOException {
+    protected byte[] readStream(InputStream is) throws IOException {
         ByteArrayOutputStream out = new ByteArrayOutputStream(is.available());
         byte[] buf = new byte[10240];
         int i;
@@ -58,50 +59,35 @@ public class Docx4jUserAgent extends NaiveUserAgent {
         return out.toByteArray();
     }
 
-    public ImageResource getImageResource(String uri) {
-        ImageResource resource = null;
-        uri = resolveURI(uri);
-        resource = (ImageResource) _imageCache.get(uri);
-        if (resource == null) {
-            InputStream is = resolveAndOpenStream(uri);
-            if (is != null) {
+    public Docx4JFSImage getDocx4JImageResource(String uri) {
+                
+        InputStream is = resolveAndOpenStream(uri);
+        if (is != null) {
+            try {
+                return new Docx4JFSImage(readStream(is));
+            } catch (Exception e) {
+                XRLog.exception("Can't read image file; unexpected problem for URI '" + uri + "'", e);
+            } finally {
                 try {
-                    URL url = new URL(uri);
-                    Image image = Image.getInstance(readStream(is));
-                    scaleToOutputResolution(image);
-//                    resource = new ImageResource(uri, new ITextFSImage(image));
-                    _imageCache.put(uri, resource);
-                } catch (Exception e) {
-                    XRLog.exception("Can't read image file; unexpected problem for URI '" + uri + "'", e);
-                } finally {
-                    try {
-                        is.close();
-                    } catch (IOException e) {
-                        // ignore
-                    }
+                    is.close();
+                } catch (IOException e) {
+                    // ignore
                 }
             }
         }
-
-        if (resource != null) {
-//            resource = new ImageResource(resource.getImageUri(), (FSImage)((ITextFSImage)resource.getImage()).clone());
-        } else {
-            resource = new ImageResource(uri, null);
-        }
-
-        return resource;
+        return null;
     }
 
-    private void scaleToOutputResolution(Image image) {
-        float factor = _sharedContext.getDotsPerPixel();
-        image.scaleAbsolute(image.getPlainWidth() * factor, image.getPlainHeight() * factor);
-    }
-
-    public SharedContext getSharedContext() {
-        return _sharedContext;
-    }
-
-    public void setSharedContext(SharedContext sharedContext) {
-        _sharedContext = sharedContext;
-    }
+//    private void scaleToOutputResolution(Image image) {
+//        float factor = _sharedContext.getDotsPerPixel();
+//        image.scaleAbsolute(image.getPlainWidth() * factor, image.getPlainHeight() * factor);
+//    }
+//
+//    public SharedContext getSharedContext() {
+//        return _sharedContext;
+//    }
+//
+//    public void setSharedContext(SharedContext sharedContext) {
+//        _sharedContext = sharedContext;
+//    }
 }

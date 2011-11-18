@@ -49,6 +49,9 @@ import org.docx4j.org.xhtmlrenderer.util.XRLog;
 // manage colspans and the details of the table layout algorithms).  Many kudos
 // to the KHTML developers for making such an amazing piece of software!
 public class TableBox extends BlockBox {
+    
+    public TableBox() {}
+    
     private final List _columns = new ArrayList();
     private int[] _columnPos;
     private TableLayout _tableLayout;
@@ -96,6 +99,8 @@ public class TableBox extends BlockBox {
     }
 
     private void setColumnPos(int[] columnPos) {
+        //System.out.println("setColumnPos " + columnPos.length);
+
         _columnPos = columnPos;
     }
 
@@ -197,7 +202,7 @@ public class TableBox extends BlockBox {
         return _columns;
     }
 
-    private void recalcSections(LayoutContext c) {
+    public void recalcSections(LayoutContext c) {
         ensureChildren(c);
         for (Iterator i = getChildIterator(); i.hasNext(); ) {
             TableSectionBox section = (TableSectionBox)i.next();
@@ -221,7 +226,7 @@ public class TableBox extends BlockBox {
         calcMinMaxWidth(c);
         calcDimensions(c);
         calcWidth();
-        calcPageClearance(c);
+        calcPageClearance(c); 
 
         // Recalc to pick up auto margins now that layout has been called on
         // containing block and the table has a content width
@@ -233,7 +238,7 @@ public class TableBox extends BlockBox {
         _tableLayout.layout(c);
 
         setCellWidths(c);
-
+        
         layoutTable(c);
     }
 
@@ -930,11 +935,15 @@ public class TableBox extends BlockBox {
         }
     }
 
+    /**
+     *
+     */
     private static class FixedTableLayout implements TableLayout {
         private final TableBox _table;
         private List _widths;
 
         public FixedTableLayout(TableBox table) {
+            //System.out.println("FixedTableLayout");
             _table = table;
         }
 
@@ -1154,12 +1163,16 @@ public class TableBox extends BlockBox {
         }
     }
 
+    /**
+     *
+     */
     private static class AutoTableLayout implements TableLayout {
         private final TableBox _table;
         private Layout[] _layoutStruct;
         private List _spanCells;
 
         public AutoTableLayout(TableBox table) {
+            //System.out.println("AutoTableLayout");
             _table = table;
         }
 
@@ -1556,6 +1569,9 @@ public class TableBox extends BlockBox {
 
 
         public void layout(LayoutContext c) {
+            
+            //System.out.println("AutoTableLayout - layout");
+            
             TableBox table = _table;
             // table layout based on the values collected in the layout
             // structure.
@@ -1785,6 +1801,8 @@ public class TableBox extends BlockBox {
             int[] columnPos = new int[nEffCols + 1];
             for (int i = 0; i < nEffCols; i++) {
                 columnPos[i] = pos;
+                //System.out.println(i + ": " + pos);
+
                 pos += layoutStruct[i].calcWidth() + hspacing;
             }
 
