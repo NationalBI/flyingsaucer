@@ -19,7 +19,7 @@
  */
 package org.docx4j.org.xhtmlrenderer.docx;
 
-import org.docx4j.org.xhtmlrenderer.extend.FontContext;
+import org.xhtmlrenderer.extend.FontContext;
 
 public class Docx4jFontContext implements FontContext {
 

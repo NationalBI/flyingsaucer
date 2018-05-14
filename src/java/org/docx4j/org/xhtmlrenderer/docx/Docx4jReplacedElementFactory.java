@@ -25,15 +25,15 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import org.docx4j.org.xhtmlrenderer.extend.FSImage;
-import org.docx4j.org.xhtmlrenderer.extend.ReplacedElement;
-import org.docx4j.org.xhtmlrenderer.extend.ReplacedElementFactory;
-import org.docx4j.org.xhtmlrenderer.extend.UserAgentCallback;
-import org.docx4j.org.xhtmlrenderer.layout.LayoutContext;
-import org.docx4j.org.xhtmlrenderer.render.BlockBox;
-import org.docx4j.org.xhtmlrenderer.simple.extend.FormSubmissionListener;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
+import org.xhtmlrenderer.extend.FSImage;
+import org.xhtmlrenderer.extend.ReplacedElement;
+import org.xhtmlrenderer.extend.ReplacedElementFactory;
+import org.xhtmlrenderer.extend.UserAgentCallback;
+import org.xhtmlrenderer.layout.LayoutContext;
+import org.xhtmlrenderer.render.BlockBox;
+import org.xhtmlrenderer.simple.extend.FormSubmissionListener;
 
 public class Docx4jReplacedElementFactory implements ReplacedElementFactory {
 	private Docx4jDocxOutputDevice _outputDevice;

@@ -18,18 +18,18 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  * }}}
  */
-package org.docx4j.org.xhtmlrenderer.docx;
+package org.xhtmlrenderer.docx;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 
-import org.docx4j.org.xhtmlrenderer.extend.FSImage;
-import org.docx4j.org.xhtmlrenderer.layout.SharedContext;
-import org.docx4j.org.xhtmlrenderer.resource.ImageResource;
-import org.docx4j.org.xhtmlrenderer.swing.NaiveUserAgent;
-import org.docx4j.org.xhtmlrenderer.util.XRLog;
+import org.xhtmlrenderer.extend.FSImage;
+import org.xhtmlrenderer.layout.SharedContext;
+import org.xhtmlrenderer.resource.ImageResource;
+import org.xhtmlrenderer.swing.NaiveUserAgent;
+import org.xhtmlrenderer.util.XRLog;
 
 import com.lowagie.text.Image;
 import com.lowagie.text.Rectangle;

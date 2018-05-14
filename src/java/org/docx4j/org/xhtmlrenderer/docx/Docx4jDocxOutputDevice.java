@@ -24,13 +24,13 @@ import java.awt.RenderingHints.Key;
 import java.awt.Shape;
 import java.awt.Stroke;
 
-import org.docx4j.org.xhtmlrenderer.css.parser.FSColor;
-import org.docx4j.org.xhtmlrenderer.extend.FSImage;
-import org.docx4j.org.xhtmlrenderer.render.AbstractOutputDevice;
-import org.docx4j.org.xhtmlrenderer.render.BlockBox;
-import org.docx4j.org.xhtmlrenderer.render.FSFont;
-import org.docx4j.org.xhtmlrenderer.render.InlineText;
-import org.docx4j.org.xhtmlrenderer.render.RenderingContext;
+import org.xhtmlrenderer.css.parser.FSColor;
+import org.xhtmlrenderer.extend.FSImage;
+import org.xhtmlrenderer.render.AbstractOutputDevice;
+import org.xhtmlrenderer.render.BlockBox;
+import org.xhtmlrenderer.render.FSFont;
+import org.xhtmlrenderer.render.InlineText;
+import org.xhtmlrenderer.render.RenderingContext;
 
 public class Docx4jDocxOutputDevice extends AbstractOutputDevice {
 
