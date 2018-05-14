@@ -705,6 +705,12 @@ public abstract class Box implements Styleable {
     }
 
     public void setElement(Element element) {
+        
+//        if (element.getLocalName().equals("body")) {
+//            Throwable t = new Throwable();
+//            t.printStackTrace();
+//        }
+        
         _element = element;
     }
 
