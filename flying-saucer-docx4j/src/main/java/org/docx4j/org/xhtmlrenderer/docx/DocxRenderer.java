@@ -122,6 +122,7 @@ public class DocxRenderer {
 		_sharedContext = new SharedContext();
 		_sharedContext.setUserAgentCallback(userAgent);
 		_sharedContext.setCss(new StyleReference(userAgent, extraCSS));
+		_sharedContext.isDocx4j = true;
 //        userAgent.setSharedContext(_sharedContext);
 //        _outputDevice.setSharedContext(_sharedContext);
 

@@ -49,10 +49,15 @@ public class BlockBoxing {
     }
 
     public static void layoutContent(LayoutContext c, BlockBox block, int contentStart) {
-        layoutContentPDF(c, block, contentStart);
+        if (c.getSharedContext().isDocx4j) {
+            layoutContentDocx4j(c, block, contentStart);
+        }
+        else {
+            layoutContentPDF(c, block, contentStart);
+        }
     }
 
-    public static void layoutContentDocx4j(LayoutContext c, BlockBox block, int contentStart) {
+    private static void layoutContentDocx4j(LayoutContext c, BlockBox block, int contentStart) {
         List localChildren = block.getChildren();
 
         //System.out.println("BlockBoxing .. with " + localChildren.size() + " kids.");
@@ -65,7 +70,7 @@ public class BlockBoxing {
     }
 
 
-    public static void layoutContentPDF(LayoutContext c, BlockBox block, int contentStart) {
+    private static void layoutContentPDF(LayoutContext c, BlockBox block, int contentStart) {
         int offset = -1;
 
         List localChildren = block.getChildren();

@@ -99,6 +99,8 @@ public class SharedContext {
     
     private LineBreakingStrategy lineBreakingStrategy = new DefaultLineBreakingStrategy();
 
+    public boolean isDocx4j = false;
+
     public SharedContext() {
     }
 
