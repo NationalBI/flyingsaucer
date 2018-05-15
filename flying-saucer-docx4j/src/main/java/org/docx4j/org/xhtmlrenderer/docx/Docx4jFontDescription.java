@@ -19,7 +19,7 @@
  */
 package org.docx4j.org.xhtmlrenderer.docx;
 
-import org.docx4j.org.xhtmlrenderer.css.constants.IdentValue;
+import org.xhtmlrenderer.css.constants.IdentValue;
 
 import com.lowagie.text.pdf.BaseFont;
 

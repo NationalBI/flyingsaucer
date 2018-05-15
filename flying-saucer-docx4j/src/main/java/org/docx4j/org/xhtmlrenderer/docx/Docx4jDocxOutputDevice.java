@@ -54,6 +54,11 @@ public class Docx4jDocxOutputDevice extends AbstractOutputDevice {
         
     }
 
+    public void draw(Shape s) {
+        // TODO Auto-generated method stub
+
+    }
+
     public void drawRect(int x, int y, int width, int height) {
         // TODO Auto-generated method stub
         
@@ -64,9 +69,9 @@ public class Docx4jDocxOutputDevice extends AbstractOutputDevice {
         
     }
 
-    public void drawBorderLine(Rectangle bounds, int side, int width, boolean solid) {
+    public void drawBorderLine(Shape s, int x, int y, boolean solid) {
         // TODO Auto-generated method stub
-        
+
     }
 
     public void drawImage(FSImage image, int x, int y) {

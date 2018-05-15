@@ -19,7 +19,7 @@
  */
 package org.docx4j.org.xhtmlrenderer.docx;
 
-import org.docx4j.org.xhtmlrenderer.render.FSFont;
+import org.xhtmlrenderer.render.FSFont;
 
 public class Docx4jFSFont implements FSFont {
     

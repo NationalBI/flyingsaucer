@@ -25,7 +25,7 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
-import org.docx4j.org.xhtmlrenderer.css.constants.IdentValue;
+import org.xhtmlrenderer.css.constants.IdentValue;
 
 public class Docx4jFontFamily {
     

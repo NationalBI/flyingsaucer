@@ -23,11 +23,11 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.docx4j.org.xhtmlrenderer.css.constants.IdentValue;
-import org.docx4j.org.xhtmlrenderer.css.value.FontSpecification;
-import org.docx4j.org.xhtmlrenderer.extend.FontResolver;
-import org.docx4j.org.xhtmlrenderer.layout.SharedContext;
-import org.docx4j.org.xhtmlrenderer.render.FSFont;
+import org.xhtmlrenderer.css.constants.IdentValue;
+import org.xhtmlrenderer.css.value.FontSpecification;
+import org.xhtmlrenderer.extend.FontResolver;
+import org.xhtmlrenderer.layout.SharedContext;
+import org.xhtmlrenderer.render.FSFont;
 
 import com.lowagie.text.DocumentException;
 import com.lowagie.text.pdf.BaseFont;
