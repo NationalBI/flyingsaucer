@@ -94,6 +94,9 @@ public class Docx4jTextRenderer implements TextRenderer {
         return 0;
     }
 
+    /**
+     * @deprecated
+     */
     public void setSmoothingLevel(int level) {
     }
 
